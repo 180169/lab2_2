@@ -63,11 +63,11 @@ public class MoneyTest {
 
     @Test
     public void money_lessThan_firstLessThanThird_expectedFalse() {
-        assertThat(first.lessThan(third), is(true));
+        assertThat(first.lessThan(third), is(false));
     }
 
     @Test
     public void money_lessThan_secondEqualToFirst_expectedFalse() {
-        assertThat(second.lessThan(first), is(true));
+        assertThat(second.lessThan(first), is(false));
     }
 }
