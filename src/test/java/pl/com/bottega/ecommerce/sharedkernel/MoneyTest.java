@@ -49,9 +49,8 @@ public class MoneyTest {
         assertThat( first.lessOrEquals(third), is(false));
     }
     @Test
-    public void money_lessOrEquals_firstLessThanSecond_expectedTrue(){
+    public void money_lessOrEquals_firstEqualSecond_expectedTrue(){
         assertThat( first.lessOrEquals(second), is(true));
     }
-    
 
 }
