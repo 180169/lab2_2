@@ -70,4 +70,19 @@ public class MoneyTest {
     public void money_lessThan_secondEqualToFirst_expectedFalse() {
         assertThat(second.lessThan(first), is(false));
     }
+
+    @Test
+    public void money_greaterThan_firstGreaterThenThird_expectedTrue() {
+        assertThat(first.greaterThan(third), is(true));
+    }
+
+    @Test
+    public void money_greaterThan_secondGreaterThenFirst_expectedFalse() {
+        assertThat(second.greaterThan(first), is(false));
+    }
+
+    @Test
+    public void money_greaterThan_thirdGreaterThenfirst_expectedFalse() {
+        assertThat(third.greaterThan(first), is(false));
+    }
 }
