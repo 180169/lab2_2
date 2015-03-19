@@ -107,4 +107,25 @@ public class MoneyTest {
     public void money_subtract_missmatchedCurrency_expectedException() {
         third.subtract(fourth);
     }
+    
+    @Test
+    public void money_add_thirdAddThirdEqualsFirst_expectedTrue() {
+        assertThat(third.add(third), is(first));
+    }
+    @Test
+    public void money_add_sixthEqualZeroAddThird_expectedTrue() {
+        assertThat(sixth.add(third), is(third));
+    }
+
+    @Test
+    public void money_add_thirdAddSixthThatEqualsZero_expectedTrue() {
+        assertThat(third.add(sixth), is(third));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void money_add_missmatchedCurrency_expectedException() {
+        third.add(fourth);
+    }
+    
+    
 }
