@@ -40,17 +40,34 @@ public class MoneyTest {
     public void money_equals_twoIdenticalElements_expectedTrue() {
         assertTrue(first.equals(second));
     }
+
     @Test
-    public void money_lessOrEquals_thirdLessThanFirst_expectedTrue(){
-        assertThat( third.lessOrEquals(first), is(true));
-    }
-    @Test
-    public void money_lessOrEquals_firstLessThanThird_expectedFalse(){
-        assertThat( first.lessOrEquals(third), is(false));
-    }
-    @Test
-    public void money_lessOrEquals_firstEqualSecond_expectedTrue(){
-        assertThat( first.lessOrEquals(second), is(true));
+    public void money_lessOrEquals_thirdLessThanFirst_expectedTrue() {
+        assertThat(third.lessOrEquals(first), is(true));
     }
 
+    @Test
+    public void money_lessOrEquals_firstLessThanThird_expectedFalse() {
+        assertThat(first.lessOrEquals(third), is(false));
+    }
+
+    @Test
+    public void money_lessOrEquals_firstEqualSecond_expectedTrue() {
+        assertThat(first.lessOrEquals(second), is(true));
+    }
+
+    @Test
+    public void money_lessThan_thirdLessThanFirst_expectedTrue() {
+        assertThat(third.lessThan(first), is(true));
+    }
+
+    @Test
+    public void money_lessThan_firstLessThanThird_expectedFalse() {
+        assertThat(first.lessThan(third), is(true));
+    }
+
+    @Test
+    public void money_lessThan_secondEqualToFirst_expectedFalse() {
+        assertThat(second.lessThan(first), is(true));
+    }
 }
