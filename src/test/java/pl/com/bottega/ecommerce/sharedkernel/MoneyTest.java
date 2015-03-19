@@ -5,6 +5,7 @@
  */
 package pl.com.bottega.ecommerce.sharedkernel;
 
+import static org.hamcrest.CoreMatchers.is;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -39,5 +40,18 @@ public class MoneyTest {
     public void money_equals_twoIdenticalElements_expectedTrue() {
         assertTrue(first.equals(second));
     }
+    @Test
+    public void money_lessOrEquals_thirdLessThanFirst_expectedTrue(){
+        assertThat( third.lessOrEquals(first), is(true));
+    }
+    @Test
+    public void money_lessOrEquals_firstLessThanThird_expectedFalse(){
+        assertThat( first.lessOrEquals(third), is(false));
+    }
+    @Test
+    public void money_lessOrEquals_firstLessThanSecond_expectedTrue(){
+        assertThat( first.lessOrEquals(second), is(true));
+    }
+    
 
 }
