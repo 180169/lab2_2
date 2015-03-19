@@ -20,6 +20,8 @@ public class MoneyTest {
     private final Money third = new Money(10.00, "USD");
     private final Money fourth = new Money(20.00, "PLN");
     private final Money fifth = new Money(10.00, "PLN");
+    private final Money sixth = new Money(0.00, "USD");
+    private final Money minus = new Money(-10.00, "USD");
 
     @Test
     public void money_equals_twoElementsWithBothValuesDifferent_expectedFalse() {
@@ -84,5 +86,25 @@ public class MoneyTest {
     @Test
     public void money_greaterThan_thirdGreaterThenfirst_expectedFalse() {
         assertThat(third.greaterThan(first), is(false));
+    }
+
+    @Test
+    public void money_subtract_firstSubtractByThird_expectedTrue() {
+        assertThat(first.subtract(third), is(third));
+    }
+
+    @Test
+    public void money_subtract_sixthEqualZeroSubtractThird_expectedException() {
+        assertThat(sixth.subtract(third), is(minus));
+    }
+
+    @Test
+    public void money_subtract_thirdSubtractSixthThatEqualsZero_expectedException() {
+        assertThat(third.subtract(sixth), is(third));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void money_subtract_missmatchedCurrency_expectedException() {
+        third.subtract(fourth);
     }
 }
